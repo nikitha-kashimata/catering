@@ -26,6 +26,17 @@ def gallery():
 def contact():
 	return render_template('contact.html')
 
+@app.route("/login")#,methods=['POST','GET'])
+def login():
+	# if request.method=='POST':
+	# 	user=request.form['username']
+	# 	password=request.form['password']
+	return render_template('login.html')
+
+@app.route("/signup")
+def signup():
+	return render_template('signup.html')
+
 firebaseConfig = {
     "apiKey": "AIzaSyCf-90YLu78oyfdqqjBQmW5N3z41wS9R38",
     "authDomain": "caterer-cd2e1.firebaseapp.com",
