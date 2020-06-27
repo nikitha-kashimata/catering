@@ -38,7 +38,7 @@
 					</span>
 
 					<span class="txt1 p-b-11">
-						Username
+						Email
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
 						<input class="input100" type="text" name="username" value={{request.form.username}} >
@@ -76,7 +76,7 @@
 					
 				</div>
 					{% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
+        <p class="error"><strong style="font-size: 10px text-color:red">Error:</strong> {{ error }}
       {% endif %}
 
 				</form>
