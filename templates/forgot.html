@@ -1,0 +1,23 @@
+<html>
+<head><title>forget password</title></head>
+<body>
+	<form class="login100-form validate-form flex-sb flex-w" method="post">
+		<span class="txt1 p-b-11">
+						Email
+					</span>
+					<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+						<input class="input100" type="email" name="email" value={{request.form.email}}>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Send
+						</button>
+					</div>
+					{% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+				</form>
+</body>
+</html>
