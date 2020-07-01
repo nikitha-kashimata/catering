@@ -13,6 +13,7 @@ firebaseConfig = {
  # Initialize Firebase
 firebase=pyrebase.initialize_app(firebaseConfig);
 auth=firebase.auth()
+db = firebase.firestore.client()
 
 @app.route("/")
 def main():
@@ -26,9 +27,47 @@ def menu():
 def about():
    return render_template('about.html')
 
-@app.route("/reservation")
+@app.route("/confirm")
+def confirm():
+   return render_template('confirm.html')
+
+
+@app.route("/reservation",methods=['POST','GET'])
 def reservation():
-    return render_template('reservation.html')
+    data = {
+    u'stringExample': u'Hello, World!',
+    u'booleanExample': True,
+    u'numberExample': 3.14159265,
+    # u'dateExample': datetime.datetime.now(),
+    u'arrayExample': [5, True, u'hello'],
+    u'nullExample': None,
+    u'objectExample': {
+        u'a': 5,
+        u'b': True
+    }
+    }
+
+    db.collection(u'data').document(u'one').set(data)
+        # error=None
+        # if request.method=='POST':
+        #     #if request.form['submit']:
+        #         data={
+        #         u"date":u"request.form['date']",
+        #         u"time":u"request.form['time']",
+        #         u"persons":u"request.form['persons']",
+        #         u"name":u"request.form['name']",
+        #         u"email":u"request.form['email']",
+        #         u"phone":u"request.form['number']"
+        #         }
+        #         db.collection(u'reserve').document(u'1').set(data)
+
+        #         return redirect(url_for('confirm'))
+
+        #     # except:
+        #     #     error='Please Enter all data'
+        #     #     return render_template('reservation.html',error=error)
+
+    return render_template('reservation.html',error=error)
 
 @app.route("/gallery")
 def gallery():
